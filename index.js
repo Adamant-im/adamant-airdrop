@@ -3,7 +3,9 @@ const { stdin: input, stdout: output } = require('process');
 const config = require('./lib/configReader');
 const logger = require('./lib/log');
 const { processFile } = require('./lib/processFile');
-const { sendTokens } = require('./lib/sendTokens');
+const { sendTokens, getBalance } = require('./lib/api');
+
+const TRANSACTION_FEE = 0.5;
 
 async function main() {
   const rl = readline.createInterface({ input, output });
@@ -19,7 +21,18 @@ async function main() {
   logger.log(`Valid addresses: ${validAddresses.length}`);
   logger.warn(`Invalid addresses: ${invalidAddresses.length}`);
 
-  //const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
+  const balance = await getBalance(config.address);
+  if (!balance) {
+    logger.error(`Unable to check ${config.address} balance`);
+    process.exit(1);
+  } else if (balance < validAddresses.length * (config.amount + TRANSACTION_FEE)) {
+    logger.error(`${config.address} doen't have enough ADM to execute all transactions`);
+    process.exit(1);
+  } else {
+    logger.log(`Successfully verified ${config.address} balance`);
+  }
+
+  // const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
 }
 
 main();
