@@ -1,29 +1,11 @@
 const config = require('./lib/configReader');
-const logger = require('./lib/log');
 const { processFile } = require('./lib/processFile');
-
-const api = require('adamant-api')({ node: config.node_ADM, logLevel: 'info' });
-
-const addresses = [];
-
-const succAddresses = [];
-const failAddresses = [];
+const { sendTokens } = require('./lib/sendTokens');
 
 async function main() {
   const { validAddresses, invalidAddresses } = await processFile(config.inputFile);
 
-  for (const address of addresses) {
-    const response = await api.sendTokens(config.passPhrase, address, config.amount);
-
-    if (response.success) {
-      succAddresses.push(address);
-    } else {
-      failAddresses.push(address);
-    }
-  }
-
-  logger.error(`Failed to send tokens to  ${failAddresses.length} addresses`, 'failAddress', failAddresses);
-  logger.info(`Succeeded to send tokens to ${succAddresses.length} addresses`, 'succAddress', succAddresses);
+  const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
 }
 
 main();
