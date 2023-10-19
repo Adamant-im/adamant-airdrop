@@ -1,4 +1,6 @@
 /.idea
 /.vscode
 /node_modules
-config.default.jsonc
+/logs
+config.jsonc
+.DS_Store
