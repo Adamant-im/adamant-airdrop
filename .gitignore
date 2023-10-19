@@ -2,5 +2,6 @@
 /.vscode
 /node_modules
 /logs
+/output
 config.jsonc
 .DS_Store

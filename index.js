@@ -4,6 +4,7 @@ const config = require('./lib/configReader');
 const logger = require('./lib/log');
 const { processFile } = require('./lib/processFile');
 const { sendTokens, getBalance } = require('./lib/api');
+const { serializeProcessFileResult } = require('./lib/output');
 
 const TRANSACTION_FEE = 0.5;
 
@@ -20,6 +21,8 @@ async function main() {
   logger.log(`Successfully processed input file`);
   logger.log(`Valid addresses: ${validAddresses.length}`);
   logger.warn(`Invalid addresses: ${invalidAddresses.length}`);
+
+  await serializeProcessFileResult(validAddresses, invalidAddresses);
 
   const balance = await getBalance(config.address);
   if (!balance) {
