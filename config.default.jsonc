@@ -16,5 +16,7 @@
     "https://sunshine.adamant.im"
   ],
 
+  "log_level": "log",
+
   "amount": 1
 }
