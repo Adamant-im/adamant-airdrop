@@ -36,13 +36,15 @@ async function main() {
     logger.log(`Successfully verified ${config.address} balance`);
   }
 
-  // const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
+  const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
 
-  // logger.log('Token sending finished');
-  // logger.log(`Successful addresses: ${successfulAddresses.length}`);
-  // logger.warn(`Failed addresses: ${failedAddresses.length}`);
+  logger.log('Token sending finished');
+  logger.log(`Successful addresses: ${successfulAddresses.length}`);
+  logger.warn(`Failed addresses: ${failedAddresses.length}`);
 
-  // logger.log('Check airdrop results at ./output dir');
+  logger.log('Check airdrop results at ./output dir');
+
+  process.exit(1);
 }
 
 main();
