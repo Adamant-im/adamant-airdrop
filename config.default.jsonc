@@ -1,7 +1,7 @@
 {
   "passPhrase": "distance expect praise frequent..",
 
-  "inputFile": "list.txt",
+  "inputFile": "examples/example.list.txt",
 
   "node_ADM": [
     "https://bid.adamant.im",
@@ -18,5 +18,7 @@
 
   "log_level": "log",
 
-  "amount": 1
+  "amount": 1,
+
+  "skipDublicates": true
 }
