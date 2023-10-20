@@ -30,7 +30,7 @@ async function main() {
     logger.error(`Unable to verify ${config.address} balance`);
     process.exit(1);
   } else if (balance < validAddresses.length * (config.amount + TRANSACTION_FEE)) {
-    logger.error(`${config.address} doen't have enough ADM to execute all transactions`);
+    logger.error(`${config.address} doen't have enough ADM to execute all airdrop transactions`);
     process.exit(1);
   } else {
     logger.log(`Successfully verified ${config.address} balance`);
