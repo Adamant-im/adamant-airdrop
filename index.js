@@ -44,7 +44,7 @@ async function main() {
 
   logger.log('Check airdrop results at ./output dir');
 
-  process.exit(1);
+  process.exit(0);
 }
 
 main();
