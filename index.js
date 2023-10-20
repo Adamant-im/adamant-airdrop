@@ -4,7 +4,7 @@ const config = require('./lib/configReader');
 const logger = require('./lib/log');
 const { processFile } = require('./lib/processFile');
 const { sendTokens, getBalance } = require('./lib/api');
-const { serializeProcessFileResult } = require('./lib/output');
+const { serializeToTxt } = require('./lib/output');
 
 const TRANSACTION_FEE = 0.5;
 
@@ -22,11 +22,12 @@ async function main() {
   logger.log(`Valid addresses: ${validAddresses.length}`);
   logger.warn(`Invalid addresses: ${invalidAddresses.length}`);
 
-  await serializeProcessFileResult(validAddresses, invalidAddresses);
+  serializeToTxt(validAddresses.join(`\n`), 'validAddresses');
+  serializeToTxt(invalidAddresses.join(`\n`), 'invalidAddresses');
 
   const balance = await getBalance(config.address);
   if (!balance) {
-    logger.error(`Unable to check ${config.address} balance`);
+    logger.error(`Unable to verify ${config.address} balance`);
     process.exit(1);
   } else if (balance < validAddresses.length * (config.amount + TRANSACTION_FEE)) {
     logger.error(`${config.address} doen't have enough ADM to execute all transactions`);
@@ -36,6 +37,12 @@ async function main() {
   }
 
   // const { successfulAddresses, failedAddresses } = await sendTokens(validAddresses);
+
+  // logger.log('Token sending finished');
+  // logger.log(`Successful addresses: ${successfulAddresses.length}`);
+  // logger.warn(`Failed addresses: ${failedAddresses.length}`);
+
+  // logger.log('Check airdrop results at ./output dir');
 }
 
 main();
