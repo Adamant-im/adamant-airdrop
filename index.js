@@ -3,6 +3,7 @@ const readline = require('readline/promises');
 const { stdin: input, stdout: output } = require('process');
 const { validate } = require('./lib/validate');
 const { airdrop } = require('./lib/airdrop');
+const config = require('./lib/configReader');
 
 program
   .requiredOption('--mode <mode>', 'specify run mode: airdrop/validate', 'validate');
@@ -10,10 +11,9 @@ program
 program.parse();
 
 async function main() {
-
   const options = program.opts();
 
-  const { validAddresses } = await validate();
+  const { validAddresses } = await validate(config.inputFile, config.address, config.amount);
 
   if (options.mode === 'airdrop') {
     const rl = readline.createInterface({ input, output });
@@ -23,7 +23,7 @@ async function main() {
       process.exit(0);
     }
 
-    await airdrop(validAddresses);
+    await airdrop(validAddresses, config.passPhrase, config.amount);
   }
 
   process.exit(0);

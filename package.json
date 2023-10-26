@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "npx eslint -f visualstudio .",
     "lint:fix": "npx eslint -f visualstudio --fix",
-    "start": "node index.js",
-    "validate": "node validate.js"
+    "airdrop": "node index.js --mode airdrop",
+    "validate": "node index.js --mode validate"
   },
   "keywords": [
     "adm",
