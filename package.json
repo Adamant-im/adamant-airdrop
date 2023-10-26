@@ -16,7 +16,7 @@
     "messenger",
     "airdrop"
   ],
-  "author": "Aleksei Lebedev, ADAMANT Foundation <devs@adamant.im> (https://adamant.im)",
+  "author": "ADAMANT Foundation <devs@adamant.im>",
   "license": "ISC",
   "dependencies": {
     "adamant-api": "^1.8.0",
