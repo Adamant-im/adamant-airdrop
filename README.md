@@ -28,10 +28,14 @@ Run `validate` script before executing airdrop to check input files entries and 
 npm run validate
 ```
 
-You can check valid and invalid addresses at `./output` dir.
+You can check validation results at `./output/<time>/<format>/validate` dir
 
-Running airdrop script
+Running `airdrop` script
 
 ```(bash)
-npm run start
+npm run airdrop
 ```
+
+You can check airdrop results at `./output/<time>/<format>/airdrop` dir
+
+If some of transactions were not sent, you can specify corresponding `failedAddresses.txt` as input file
