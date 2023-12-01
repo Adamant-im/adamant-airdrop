@@ -4,7 +4,7 @@
 
 ### Requirements
 
-* Node.js v18+
+- Node.js v18+
 
 ### Setup
 
