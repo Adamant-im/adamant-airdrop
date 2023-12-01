@@ -18,10 +18,10 @@ export const validateAddresses = async progress => {
   const addresses = [...validator.addresses]
 
   if (addresses.length === 0) {
-    fatalWithLog('No valid addresses found.')
+    fatalWithLog('No valid addresses have been found.')
   }
 
-  progress.done(`Successfuly read and validated addresses`)
+  progress.done(`Successfully read and validated addresses`)
 
   return addresses
 }

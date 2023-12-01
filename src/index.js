@@ -46,13 +46,13 @@ async function run() {
 
 function printSummary(amount, totalAddresses, failedCount, successCount) {
   new Table('Airdrop Summary')
-    .row('Sent total', `${amount} ADM`, {
+    .row('Sent a total of', `${amount} ADM`, {
       color: isFullfield(amount, totalAddresses * config.amount)
     })
     .row('Failed to send to', `${failedCount} addresses`, {
       color: isEmpty(failedCount, totalAddresses)
     })
-    .row('Successfuly sent to', `${successCount} addresses`, {
+    .row('Successfully sent to', `${successCount} addresses`, {
       color: isFullfield(successCount, totalAddresses)
     })
     .print()
