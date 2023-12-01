@@ -2,7 +2,7 @@ import { config } from '../config/index.js'
 
 import { AddressesValidator } from './validator.js'
 import { readAddresses } from './reader.js'
-import { fatal } from '../logger/index.js'
+import { fatalWithLog } from '../logger/index.js'
 
 export const validateAddresses = async progress => {
   progress.set('Reading and validating addresses...')
@@ -18,7 +18,7 @@ export const validateAddresses = async progress => {
   const addresses = [...validator.addresses]
 
   if (addresses.length === 0) {
-    fatal('No valid addresses found.')
+    fatalWithLog('No valid addresses found.')
   }
 
   progress.done(`Successfuly read and validated addresses`)

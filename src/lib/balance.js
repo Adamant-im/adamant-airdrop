@@ -1,7 +1,7 @@
 import { SAT, fees } from 'adamant-api'
 
 import { config } from '../config/index.js'
-import { fatal } from '../logger/index.js'
+import { fatalWithLog } from '../logger/index.js'
 
 import { api } from './api.js'
 
@@ -14,14 +14,14 @@ export async function checkBalance(progress, addressesCount) {
   const result = await api.getAccountBalance(address)
 
   if (!result.success) {
-    fatal(`Failed to verify ${address} balance`)
+    fatalWithLog(`Failed to verify ${address} balance`)
   }
 
   const balance = Number(result.balance)
   const estimatedBalance = addressesCount * (amount * SAT + fees.send)
 
   if (balance < estimatedBalance) {
-    fatal(
+    fatalWithLog(
       `${address} account doesn't have enough ADM to execute all Airdrop transactions. Please add ${
         (estimatedBalance - balance) / SAT
       } more ADM to proceed.`

@@ -2,7 +2,7 @@ import fs from 'fs'
 import readline from 'readline'
 import path from 'path'
 
-import { fatal } from '../logger/index.js'
+import { fatalWithLog } from '../logger/index.js'
 
 export async function* readAddresses(filePath) {
   try {
@@ -24,7 +24,7 @@ export async function* readAddresses(filePath) {
       yield [line, location]
     }
   } catch (error) {
-    fatal(`Failed to process file ${filePath}: ${error}`)
+    fatalWithLog(`Failed to process file ${filePath}: ${error}`)
   }
 }
 
@@ -33,13 +33,13 @@ export function* readJSONAddresses(filePath) {
   const data = JSON.parse(fileData)
 
   if ((!'list') in data) {
-    fatal(
+    fatalWithLog(
       `JSON input file must have 'list' property with an array of addresses.`
     )
   }
 
   if (!Array.isArray(data.list)) {
-    fatal(`'list' property in JSON input file must be an Array.`)
+    fatalWithLog(`'list' property in JSON input file must be an Array.`)
   }
 
   for (const item of data.list) {
