@@ -7,17 +7,22 @@ const outputPath = createOutputDirectories()
 
 const streams = {
   successfulAddresses: createWriteStream(
-    `${outputPath}/successfulTransactions.csv`
+    `${outputPath}/successfulTransactions.csv`,
+    ['address', 'transaction_id', 'amount', 'timestamp']
   ),
-  failedAddresses: createWriteStream(`${outputPath}/failedTransactions.csv`)
+  failedAddresses: createWriteStream(`${outputPath}/failedTransactions.csv`, [
+    'address'
+  ])
 }
 
 export function serialize(data, streamName) {
   try {
-    if (streams[streamName]) {
+    const stream = streams[streamName]
+
+    if (stream) {
       const line = typeof data === 'string' ? data : data.join(', ')
 
-      streams[streamName].write(`${line}\n`)
+      stream.write(`${line}\n`)
     }
   } catch (error) {
     logger.error(`Failed to serialize data to ${streamName}.csv: ${error}`)
