@@ -5,7 +5,7 @@ export function createWriteStream(filePath, headers) {
   try {
     const stream = fs.createWriteStream(filePath, { flags: 'a' })
 
-    stream.write(`${headers.join(', ')}\n`)
+    stream.write(`${headers.join(',')}\n`)
 
     return stream
   } catch (error) {

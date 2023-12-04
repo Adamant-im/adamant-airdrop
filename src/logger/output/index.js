@@ -20,7 +20,7 @@ export function serialize(data, streamName) {
     const stream = streams[streamName]
 
     if (stream) {
-      const line = typeof data === 'string' ? data : data.join(', ')
+      const line = typeof data === 'string' ? data : data.join(',')
 
       stream.write(`${line}\n`)
     }
