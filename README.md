@@ -9,12 +9,12 @@
 ### Setup
 
 ```(bash)
-npm install
+pnpm install
 ```
 
 ### Pre-launch tuning
 
-Before running, copy `config.default.jsonc` file as `config.jsonc`
+Before running, copy `config.default.jsonc` file as `config.jsonc`:
 
 ```(bash)
 cp config.default.jsonc config.jsonc
@@ -22,20 +22,18 @@ cp config.default.jsonc config.jsonc
 
 ### Launching
 
-Run `validate` script before executing airdrop to check input files entries and account balance
+Run `validate` script before executing airdrop to check input file entries and account balance:
 
 ```(bash)
-npm run validate
+npm run validate ./config.jsonc
 ```
 
-You can check validation results at `./output/<time>/<format>/validate` dir
+You can check validation results in the `./output/<datetime> validate` dir.
 
-Running `airdrop` script
+Running the `airdrop` script:
 
 ```(bash)
-npm run airdrop
+npm run airdrop ./config.jsonc
 ```
 
-You can check airdrop results at `./output/<time>/<format>/airdrop` dir
-
-If some of transactions were not sent, you can specify corresponding `failedAddresses.txt` as input file
+You can check airdrop results in the `./output/<datetime> airdrop` dir.

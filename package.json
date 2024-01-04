@@ -8,8 +8,8 @@
   "scripts": {
     "start": "node src/index.js",
     "format": "prettier --write .",
-    "airdrop": "node index.js",
-    "validate": "node index.js --validate",
+    "airdrop": "node src/index.js",
+    "validate": "node src/index.js --validate",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [
