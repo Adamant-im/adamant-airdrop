@@ -17,20 +17,22 @@ export async function checkBalance(progress, addressesCount) {
     fatalWithLog(`Failed to verify ${address} balance`)
   }
 
-  const balance = Number(result.balance)
-  const estimatedBalance = addressesCount * (amount * SAT + fees.send)
+  const totalAmount = addressesCount * amount
+  const totalFee = (addressesCount * fees.send) / SAT
+
+  const estimatedBalance = totalAmount + totalFee
+
+  const balance = Number(result.balance) / SAT
 
   if (balance < estimatedBalance) {
     fatalWithLog(
       `${address} account doesn't have enough ADM to execute all Airdrop transactions. Please add ${
-        (estimatedBalance - balance) / SAT
+        estimatedBalance - balance
       } more ADM to proceed.`
     )
   }
 
   progress.done(
-    `${address} has enough balance for Aidrop: ${balance / SAT} ADM (${
-      estimatedBalance / SAT
-    } ADM needed)`
+    `${address} has enough balance for Aidrop: ${balance} ADM (${estimatedBalance} ADM needed: ${totalAmount} ADM to airdrop and ${totalFee} ADM for blockchain fees)`
   )
 }
