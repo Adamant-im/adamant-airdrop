@@ -12,10 +12,10 @@ const logFileName = `${logsDirPath}/${date()}.log`
 const logStream = fs.createWriteStream(logFileName, { flags: 'a' })
 
 logStream.write(
-  `\n\n[The app has been started] _________________${fullTime()}_________________\n`
+  `[The app has been started] _________________${fullTime()}_________________\n`
 )
 
 export function writeLog(level, message) {
   const gap = ' '.repeat(maxLogLevelLength - level.length)
-  logStream.write(`\n${level + gap}|${fullTime()}| ${message}`)
+  logStream.write(`${level + gap}|${fullTime()}| ${message}\n`)
 }
