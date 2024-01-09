@@ -1,9 +1,9 @@
 import fs from 'fs'
 import { config } from '../../config/index.js'
-import { fullTime } from '../../utils/date.js'
+import { fullDate } from '../../utils/date.js'
 
 export function createOutputDirectories() {
-  const outputPath = `./${config.outputPath}/${fullTime()}`
+  const outputPath = `./${config.outputPath}/${fullDate()}`
 
   createDirectory(`${outputPath}`)
 

@@ -44,3 +44,5 @@ export const time = () => formatDate(Date.now()).hh_mm_ss
 export const date = () => formatDate(Date.now()).YYYY_MM_DD
 
 export const fullTime = () => `${time()} ${date()}`
+
+export const fullDate = () => `${date()} ${time()}`
