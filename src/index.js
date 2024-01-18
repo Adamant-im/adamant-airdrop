@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { shouldSetup } from './args.js'
 
 const action = shouldSetup ? 'setup' : 'airdrop'

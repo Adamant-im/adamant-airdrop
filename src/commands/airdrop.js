@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { config } from '../utils/config/index.js'
 
 import { banner } from '../tui/banner.js'
