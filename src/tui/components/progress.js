@@ -1,5 +1,5 @@
 import kleur from 'kleur'
-import * as logger from '../../logger/index.js'
+import * as logger from '../../utils/logger/index.js'
 import { icons } from '../icons.js'
 
 const { stdout } = process

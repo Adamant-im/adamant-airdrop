@@ -1,8 +1,8 @@
 import { config } from '../config/index.js'
+import { fatal } from '../fatal.js'
 
 import { writeLog } from './logging.js'
 import { LogLevel, logLevelNames } from './const.js'
-import { fatal } from '../utils/fatal.js'
 
 const logLevel = (level, message) => {
   if (config.logLevel >= level) {

@@ -1,7 +1,7 @@
 import { SAT, fees } from 'adamant-api'
 
-import { config } from '../config/index.js'
-import { fatalWithLog } from '../logger/index.js'
+import { config } from '../utils/config/index.js'
+import { fatalWithLog } from '../utils/logger/index.js'
 
 import { api } from './api.js'
 

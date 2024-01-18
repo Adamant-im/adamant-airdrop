@@ -1,8 +1,8 @@
 import { api } from './api.js'
-import { config } from '../config/index.js'
+import { config } from '../utils/config/index.js'
 
 export async function airdrop(progress, addresses) {
-  const { serialize } = await import('../logger/output/index.js')
+  const { serialize } = await import('../utils/logger/output/index.js')
 
   const { passphrase, amount } = config
 

@@ -2,7 +2,7 @@ import fs from 'fs'
 import readline from 'readline'
 import path from 'path'
 
-import { fatalWithLog } from '../logger/index.js'
+import { fatalWithLog } from '../../utils/logger/index.js'
 
 export async function* readAddresses(filePath) {
   try {

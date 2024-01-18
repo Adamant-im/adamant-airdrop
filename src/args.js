@@ -8,17 +8,22 @@ if (args.length > 2) {
 
 let configPath = ''
 let validateOnlyFlag = false
+let shouldSetup = false
 
 for (const arg of args) {
   if (arg === '--validate') {
     validateOnlyFlag = true
+  } else if (arg === 'setup') {
+    shouldSetup = true
   } else {
     configPath = arg
   }
 }
 
-if (args.length === 2 && !validateOnlyFlag) {
+// `--validate` flag can't be used without a config path
+// and `setup` command doesn't accept any arguments
+if (args.length === 2 && (!validateOnlyFlag || shouldSetup)) {
   fatal('Invalid second argument')
 }
 
-export { configPath, validateOnlyFlag }
+export { configPath, validateOnlyFlag, shouldSetup }

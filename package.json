@@ -10,6 +10,7 @@
     "format": "prettier --write .",
     "airdrop": "node src/index.js",
     "validate": "node src/index.js --validate",
+    "setup": "node src/index.js setup",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [

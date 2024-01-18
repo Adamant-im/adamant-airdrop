@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { date, fullTime } from '../utils/date.js'
+import { date, fullTime } from '../date.js'
 import { maxLogLevelLength } from './const.js'
 
 const logsDirPath = './logs'

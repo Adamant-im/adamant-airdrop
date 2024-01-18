@@ -8,10 +8,10 @@ import {
   createAddressFromPublicKey
 } from 'adamant-api'
 
-import { configPath } from '../args.js'
+import { configPath } from '../../args.js'
 
-import { fromZodError } from '../utils/zod.js'
-import { fatal } from '../utils/fatal.js'
+import { fromZodError } from '../zod.js'
+import { fatal } from '../fatal.js'
 import { getLogLevel } from '../logger/const.js'
 
 import { schema } from './schema.js'

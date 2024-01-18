@@ -1,8 +1,8 @@
-import { config } from '../config/index.js'
+import { config } from '../../utils/config/index.js'
+import { fatalWithLog } from '../../utils/logger/index.js'
 
 import { AddressesValidator } from './validator.js'
 import { readAddresses } from './reader.js'
-import { fatalWithLog } from '../logger/index.js'
 
 export const validateAddresses = async progress => {
   progress.set('Reading and validating addresses...')
