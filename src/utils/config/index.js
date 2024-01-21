@@ -63,6 +63,9 @@ const parseJSONC = jsonc => {
   }
 }
 
+const normalizeConfigPath = pathFromConfig =>
+  path.join(path.dirname(configPath), pathFromConfig)
+
 const validateConfig = config => {
   const result = schema.safeParse(config)
 
@@ -86,6 +89,9 @@ const validateConfig = config => {
   }
 
   config.logLevel = getLogLevel(config.logLevel)
+
+  config.inputFile = normalizeConfigPath(config.inputFile)
+  config.outputPath = normalizeConfigPath(config.outputPath)
 }
 
 const config = parseJSONC(await readConfig(configPath))
