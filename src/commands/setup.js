@@ -1,14 +1,11 @@
-import { dirname, join, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { join, resolve } from 'path'
 
 import { copyFile } from 'fs/promises'
 
 import kleur from 'kleur'
 
 import { prompt } from '../tui/components/prompt.js'
-import { createDirectory } from '../utils/dir.js'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
+import { __dirname, createDirectory } from '../utils/dir.js'
 
 export default async function () {
   const campaignName = await prompt('Choose an Airdrop campaign name', {
