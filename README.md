@@ -96,6 +96,10 @@ npx adamant-airdrop --validate ./config.jsonc
 
 After a successful airdrop, you can check the `output/` directory for list of successful and failed transactions, and the `logs/` directory for logs.
 
+## Contribution
+
+Please have a look at the [CONTRIBUTING.md](./.github/CONTRIBUTING.md).
+
 <h1></h1>
 
 <p align="center">Licensed under <a href="./LICENSE">GPL-3.0</a>, created by ADAMANT Foundation</p>
