@@ -24,12 +24,12 @@
   "author": "ADAMANT Foundation <devs@adamant.im>",
   "license": "ISC",
   "dependencies": {
-    "adamant-api": "^2.1.0",
+    "adamant-api": "^2.2.0",
     "commander": "^11.1.0",
     "jsonminify": "^0.4.2",
     "kleur": "^4.1.5",
     "kolorist": "^1.8.0",
-    "prettier": "^3.1.0",
+    "prettier": "^3.2.4",
     "prompts": "^2.4.2",
     "zod": "^3.22.4"
   },
@@ -42,8 +42,8 @@
   },
   "homepage": "https://github.com/Adamant-im/adamant-airdrop#readme",
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
-    "husky": "^8.0.3"
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
+    "husky": "^9.0.5"
   }
 }
