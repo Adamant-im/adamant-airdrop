@@ -7,23 +7,35 @@ if (args.length > 2) {
 }
 
 let configPath = ''
+let action = 'airdrop'
+
 let validateOnlyFlag = false
-let shouldSetup = false
 
 for (const arg of args) {
-  if (arg === '--validate') {
-    validateOnlyFlag = true
-  } else if (arg === 'setup') {
-    shouldSetup = true
-  } else {
-    configPath = arg
+  switch (arg) {
+    case '--validate':
+      validateOnlyFlag = true
+      break
+
+    case 'setup':
+      action = 'setup'
+      break
+
+    case '--version':
+    case '-v':
+      action = 'version'
+      break
+
+    default:
+      configPath = arg
+      break
   }
 }
 
 // `--validate` flag can't be used without a config path
 // and `setup` command doesn't accept any arguments
-if (args.length === 2 && (!validateOnlyFlag || shouldSetup)) {
+if (args.length === 2 && (!validateOnlyFlag || action === 'setup')) {
   fatal('Invalid second argument')
 }
 
-export { configPath, validateOnlyFlag, shouldSetup }
+export { configPath, validateOnlyFlag, action }

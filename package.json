@@ -11,6 +11,7 @@
     "airdrop": "node src/index.js",
     "validate": "node src/index.js --validate",
     "setup": "node src/index.js setup",
+    "version": "node src/index.js --version",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [

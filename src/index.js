@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-import { shouldSetup } from './args.js'
-
-const action = shouldSetup ? 'setup' : 'airdrop'
+import { action } from './args.js'
 
 const { default: run } = await import(`./commands/${action}.js`)
 
