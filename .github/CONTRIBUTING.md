@@ -31,17 +31,17 @@ You will need [Node.js](https://nodejs.org) **version 18+** and [pnpm](https://p
 After cloning the repo, run:
 
 ```bash
-$ pnpm i # install the dependencies of the project
+pnpm i # install the dependencies of the project
 ```
 
 ## Scripts
 
 ## `npm run airdrop`
 
-The `aidrop` script starts base Airdrop script without arguments.
+The `airdrop` script starts base Airdrop script without arguments.
 
 ```bash
-$ npm run airdrop ./config.json
+npm run airdrop ./config.jsonc
 ```
 
 ## `npm run validate`
@@ -49,15 +49,15 @@ $ npm run airdrop ./config.json
 The `validate` script starts Airdrop script with `--validate` flag for input file validation.
 
 ```bash
-$ npm run validate ./config.json
+npm run validate ./config.jsonc
 ```
 
 ## `npm run validate`
 
-The `validate` script starts Airdrop script with `--validate` flag for input file validation.
+The `version` script shows the software version.
 
 ```bash
-$ npm run validate ./config.json
+npm run version
 ```
 
 ## `npm run setup`
@@ -65,5 +65,5 @@ $ npm run validate ./config.json
 The `setup` script runs Airdrop setup.
 
 ```bash
-$ npm run setup
+npm run setup
 ```
