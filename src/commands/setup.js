@@ -35,10 +35,20 @@ function printInstructions(campaignName) {
   console.log(
     'A new Airdrop campaign has been created. To enter the new directory, run:'
   )
-  logCodeBlock(`cd '${campaignName}'`)
+  logCodeBlock(`cd ${campaignName}`)
 
   console.log(
-    'After editing the config file, you will be able to start airdrop via:'
+    'Edit the configuration file:'
+  )
+  logCodeBlock('nano ./config.jsonc')
+
+  console.log(
+    'Test airdrop (a dry run, no ADM will be sent):'
+  )
+  logCodeBlock('npx adamant-airdrop --validate ./config.jsonc')
+
+  console.log(
+    'Start airdrop:'
   )
   logCodeBlock('npx adamant-airdrop ./config.jsonc')
 }
