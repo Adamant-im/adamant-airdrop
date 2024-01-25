@@ -12,7 +12,8 @@
     "validate": "node src/index.js --validate",
     "setup": "node src/index.js setup",
     "version": "node src/index.js --version",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
   },
   "keywords": [
     "adm",
