@@ -32,7 +32,7 @@ export function* readJSONAddresses(filePath) {
   const fileData = fs.readFileSync(filePath)
   const data = JSON.parse(fileData)
 
-  if ((!'list') in data) {
+  if (!('list' in data)) {
     fatalWithLog(
       `JSON input file must have 'list' property with an array of addresses.`
     )
