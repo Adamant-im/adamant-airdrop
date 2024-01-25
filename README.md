@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="./screenshot.png" width="600">
+  <img src="./screenshot.png" width="600" alt="ADAMANT Airdrop screenshot">
 </p>
 
 ## Pre-requirements
@@ -43,6 +43,10 @@ To use the ADAMANT Airdrop, you only need `npx`, which is preinstalled with the 
 
 ```
 $ npx adamant-airdrop --version
+
+Need to install the following packages:
+adamant-airdrop@2.1.0
+$ Ok to proceed? (y) y
 
 ADAMANT Airdrop v2.1.0
 ```
