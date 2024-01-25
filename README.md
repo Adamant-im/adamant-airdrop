@@ -37,6 +37,18 @@ To use the ADAMANT Airdrop, you must have:
 > [!WARNING]
 > Be careful to prevent merging names into addresses or including multiple addresses on the same line, as this can lead to errors during the airdrop process.
 
+## Installation
+
+To use the ADAMANT Airdrop, you only need `npx`, which is preinstalled with the latest versions of Node.js. The `npx` command will automatically download and execute the latest version of the ADAMANT Airdrop:
+
+```
+$ npx adamant-airdrop --version
+
+ADAMANT Airdrop v2.1.0
+```
+
+If you want to run the project locally, see [development setup](./.github/CONTRIBUTING.md#development-setup) section of [contribution guide](./.github/CONTRIBUTING.md).
+
 ## Configuration
 
 Before using, you should create a configuration file. This file enables the Airdrop to access your ADAMANT account and locate the file with the addresses for the airdrop. You can generate default configuration file using the following command:
