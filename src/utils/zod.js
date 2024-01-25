@@ -38,10 +38,12 @@ function getMessageFromZodIssue({ issue, issueSeparator, unionSeparator }) {
       .join(unionSeparator)
   }
 
-  if (issue.path.length !== 0) {
+  const pathLength = issue.path.length
+
+  if (pathLength !== 0) {
     // handle array indices
-    if (issue.path.length === 1) {
-      const identifier = issue.path[0]
+    if (pathLength === 1) {
+      const [identifier] = issue.path
 
       if (typeof identifier === 'number') {
         return `${issue.message} at index ${identifier}`
@@ -69,17 +71,17 @@ export function joinPath(path) {
     ((acc, item) => {
       // handle numeric indices
       if (typeof item === 'number') {
-        return acc + '[' + item.toString() + ']'
+        return `${acc}[${item}]`
       }
 
       // handle quoted values
       if (item.includes('"')) {
-        return acc + '["' + escapeQuotes(item) + '"]'
+        return `${acc}["${escapeQuotes(item)}"]`
       }
 
       // handle special characters
       if (!identifierRegex.test(item)) {
-        return acc + '["' + item + '"]'
+        return `${acc}["${item}"]`
       }
 
       // handle normal values

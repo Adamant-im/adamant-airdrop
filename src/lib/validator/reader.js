@@ -38,11 +38,13 @@ export function* readJSONAddresses(filePath) {
     )
   }
 
-  if (!Array.isArray(data.list)) {
+  const { list } = data
+
+  if (!Array.isArray(list)) {
     fatalWithLog(`'list' property in JSON input file must be an Array.`)
   }
 
-  for (const item of data.list) {
+  for (const item of list) {
     yield item
   }
 }

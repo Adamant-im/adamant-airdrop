@@ -1,4 +1,5 @@
 import fs from 'fs'
+
 import { date, fullTime } from '../date.js'
 import { maxLogLevelLength } from './const.js'
 
