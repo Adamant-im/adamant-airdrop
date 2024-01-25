@@ -1,6 +1,6 @@
 {
   "name": "adamant-airdrop",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "ADAMANT Airdrop executer",
   "type": "module",
   "main": "src/index.js",
