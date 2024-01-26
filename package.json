@@ -6,12 +6,11 @@
   "main": "src/index.js",
   "bin": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "format": "prettier --write .",
     "airdrop": "node src/index.js",
     "validate": "node src/index.js --validate",
     "setup": "node src/index.js setup",
     "version": "node src/index.js --version",
+    "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
   },
