@@ -37,19 +37,13 @@ function printInstructions(campaignName) {
   )
   logCodeBlock(`cd ${campaignName}`)
 
-  console.log(
-    'Edit the configuration file:'
-  )
+  console.log('Edit the configuration file:')
   logCodeBlock('nano ./config.jsonc')
 
-  console.log(
-    'Test airdrop (a dry run, no ADM will be sent):'
-  )
+  console.log('Test airdrop (a dry run, no ADM will be sent):')
   logCodeBlock('npx adamant-airdrop --validate ./config.jsonc')
 
-  console.log(
-    'Start airdrop:'
-  )
+  console.log('Start airdrop:')
   logCodeBlock('npx adamant-airdrop ./config.jsonc')
 }
 
