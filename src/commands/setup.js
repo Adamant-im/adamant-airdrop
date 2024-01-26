@@ -35,7 +35,7 @@ function printInstructions(campaignName) {
   console.log(
     'A new Airdrop campaign has been created. To enter the new directory, run:'
   )
-  logCodeBlock(`cd ${campaignName}`)
+  logCodeBlock(`cd '${campaignName}'`)
 
   console.log('Edit the configuration file:')
   logCodeBlock('nano ./config.jsonc')
