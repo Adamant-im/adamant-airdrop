@@ -1,9 +1,27 @@
 {
-  "passPhrase": "distance expect praise frequent..",
+  /**
+   * The airdrop executer's secret passphrase. Create separate ADM account for the executer.
+   * Executer's ADM address will correspond this passPhrase.
+   */
+  "passphrase": "apple banana...",
 
-  "inputFile": "examples/example.list.txt",
+  /**
+   * The file to read addresses from.
+   * Supported file formats: .txt, .csv, .json
+   * .json file should have property "list" with array of addresses
+   */
+  "inputFile": "examples/example.list.csv",
 
-  "node_ADM": [
+  /**
+   * Output path for list of addresses that bot couldn't send ADM to
+   */
+  "outputPath": "output",
+
+  /**
+   * List of nodes to execute transactions.
+   * If one become unavailable, app will choose live one.
+   */
+  "nodes": [
     "https://bid.adamant.im",
     "http://localhost:36666",
     "https://endless.adamant.im",
@@ -16,9 +34,19 @@
     "https://sunshine.adamant.im"
   ],
 
-  "log_level": "log",
+  /**
+   * The app will use verbosity according to logLevel.
+   * It can be none < error < warn < info < log.
+   */
+  "logLevel": "log",
 
+  /**
+   * Amount in ADM to send for each airdrop transaction
+   */
   "amount": 1,
 
-  "skipDublicates": true
+  /**
+   * When set to true, skips duplicate addresses read from input file
+   */
+  "skipDuplicates": true
 }

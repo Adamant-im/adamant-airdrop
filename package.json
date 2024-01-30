@@ -1,13 +1,18 @@
 {
   "name": "adamant-airdrop",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "ADAMANT Airdrop executer",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
-    "lint": "npx eslint -f visualstudio .",
-    "lint:fix": "npx eslint -f visualstudio --fix",
-    "start": "node index.js",
-    "validate": "node validate.js"
+    "airdrop": "node src/index.js",
+    "validate": "node src/index.js --validate",
+    "setup": "node src/index.js setup",
+    "version": "node src/index.js --version",
+    "format": "prettier --write .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
   },
   "keywords": [
     "adm",
@@ -16,14 +21,17 @@
     "messenger",
     "airdrop"
   ],
-  "author": "Aleksei Lebedev, ADAMANT Foundation <devs@adamant.im> (https://adamant.im)",
+  "author": "ADAMANT Foundation <devs@adamant.im>",
   "license": "ISC",
   "dependencies": {
-    "adamant-api": "^1.8.0",
-    "jsonminify": "^0.4.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.51.0"
+    "adamant-api": "^2.2.0",
+    "commander": "^11.1.0",
+    "jsonminify": "^0.4.2",
+    "kleur": "^4.1.5",
+    "kolorist": "^1.8.0",
+    "prettier": "^3.2.4",
+    "prompts": "^2.4.2",
+    "zod": "^3.22.4"
   },
   "engines": {
     "node": ">= 18"
@@ -32,5 +40,10 @@
     "type": "git",
     "url": "git+https://github.com/Adamant-im/adamant-airdrop.git"
   },
-  "homepage": "https://github.com/Adamant-im/adamant-airdrop#readme"
+  "homepage": "https://github.com/Adamant-im/adamant-airdrop#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
+    "husky": "^9.0.5"
+  }
 }
